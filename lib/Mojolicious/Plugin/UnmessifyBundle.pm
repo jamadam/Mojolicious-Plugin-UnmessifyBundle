@@ -9,8 +9,9 @@ our $VERSION = '0.01';
         
         $app->hook(before_dispatch => sub {
             my $c = shift;
-            if ($c->req->url->path->parts->[0] eq $args->{prefix}) {
-                shift @{$c->req->url->path->parts};
+            my $parts = $c->req->url->path->parts;
+            if ($parts->[0] && $parts->[0] eq $args->{prefix}) {
+                shift @{$parts->parts};
             }
         });
         
