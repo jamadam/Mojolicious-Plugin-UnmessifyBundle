@@ -2,7 +2,7 @@ package Mojolicious::Plugin::UnmessifyBundle;
 use strict;
 use warnings;
 use Mojo::Base 'Mojolicious::Plugin';
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
     sub register {
         my ($self, $app, $args) = @_;
