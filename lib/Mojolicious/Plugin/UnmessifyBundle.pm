@@ -2,7 +2,7 @@ package Mojolicious::Plugin::UnmessifyBundle;
 use strict;
 use warnings;
 use Mojo::Base 'Mojolicious::Plugin';
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
     sub register {
         my ($self, $app, $args) = @_;
@@ -11,7 +11,7 @@ our $VERSION = '0.02';
             my $c = shift;
             my $parts = $c->req->url->path->parts;
             if ($parts->[0] && $parts->[0] eq $args->{prefix}) {
-                shift @{$parts};
+                shift @$parts;
             }
         });
         
@@ -72,11 +72,11 @@ Register plugin hooks in L<Mojolicious> application.
 
 =head1 AUTHOR
 
-sugama, E<lt>sugama@jamadam.comE<gt>
+Sugama Keita, E<lt>sugama@jamadam.comE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2011 by sugama.
+Copyright (C) 2011 by Sugama Keita.
 
 This program is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.
