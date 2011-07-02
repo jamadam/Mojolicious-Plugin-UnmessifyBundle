@@ -11,7 +11,7 @@ our $VERSION = '0.01';
             my $c = shift;
             my $parts = $c->req->url->path->parts;
             if ($parts->[0] && $parts->[0] eq $args->{prefix}) {
-                shift @{$parts->parts};
+                shift @{$parts};
             }
         });
         
