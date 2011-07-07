@@ -23,13 +23,8 @@ Mojolicious::Plugin::UnmessifyBundle -
 
 =head1 DESCRIPTION
 
-<<<<<<< HEAD:README.pod
-Deploying mojolicious onto white listed reverse proxy causes bundle files
-inaccessible unless each of them are all listed. This plugin modifies the
-=======
 Deploying mojolicious behind white listed reverse proxy causes bundle files
-inaccessible unless the each of them are all listed. This plugin modifies the
->>>>>>> e4b9c1b7f5f5e1f2ca96d4606f2bff076c53a694:README.pod
+inaccessible unless each of them is listed. This plugin modifies the
 paths as if the files are in a single directory so that the white list can
 be a one-liner.
 

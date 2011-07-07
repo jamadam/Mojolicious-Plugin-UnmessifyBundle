@@ -58,7 +58,7 @@ Mojolicious::Plugin::UnmessifyBundle -
 =head1 DESCRIPTION
 
 Deploying mojolicious behind white listed reverse proxy causes bundle files
-inaccessible unless each of them are all listed. This plugin modifies the
+inaccessible unless each of them is listed. This plugin modifies the
 paths as if the files are in a single directory so that the white list can
 be a one-liner.
 
