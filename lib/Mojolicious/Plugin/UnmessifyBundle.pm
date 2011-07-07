@@ -2,15 +2,16 @@ package Mojolicious::Plugin::UnmessifyBundle;
 use strict;
 use warnings;
 use Mojo::Base 'Mojolicious::Plugin';
-our $VERSION = '0.01';
+our $VERSION = '0.03';
 
     sub register {
         my ($self, $app, $args) = @_;
         
         $app->hook(before_dispatch => sub {
             my $c = shift;
-            if ($c->req->url->path->parts->[0] eq $args->{prefix}) {
-                shift @{$c->req->url->path->parts};
+            my $parts = $c->req->url->path->parts;
+            if ($parts->[0] && $parts->[0] eq $args->{prefix}) {
+                shift @$parts;
             }
         });
         
@@ -56,10 +57,10 @@ Mojolicious::Plugin::UnmessifyBundle -
 
 =head1 DESCRIPTION
 
-Deploying mojolicious onto white listed reverse proxy causes bundle files
+Deploying mojolicious behind white listed reverse proxy causes bundle files
 inaccessible unless each of them are all listed. This plugin modifies the
 paths as if the files are in a single directory so that the white list can
-be a one-liner. This plugin may also avoid file name collision.
+be a one-liner.
 
 =head1 METHODS
 
@@ -71,11 +72,11 @@ Register plugin hooks in L<Mojolicious> application.
 
 =head1 AUTHOR
 
-sugama, E<lt>sugama@jamadam.comE<gt>
+Sugama Keita, E<lt>sugama@jamadam.comE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2011 by sugama.
+Copyright (C) 2011 by Sugama Keita.
 
 This program is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.
