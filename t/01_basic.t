@@ -12,7 +12,7 @@ use utf8;
     
     sub basic : Test(9) {
         $ENV{MOJO_MODE} = 'production';
-        my $t = Test::Mojo->new(app => 'SomeApp');
+        my $t = Test::Mojo->new('SomeApp');
         $t->get_ok('/exception')
 			->status_is(500)
 			->content_like(qr{mojolicious_bundled_file});
